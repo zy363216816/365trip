@@ -1,5 +1,5 @@
 <?php	return array (
-  'FestiveVideo/:id' => 
+  'FestiveVideo/:id' =>
   array (
     0 => 'portal/Article/index?cid=4',
     1 => 
