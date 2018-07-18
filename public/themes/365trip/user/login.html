@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <include file="public@head"/>
+</head>
+
+<body>
+<div class="login-header">
+    <div class="container">
+        <div class="logo">
+            <a href="__ROOT__/">
+                <img src="__TMPL__/public/assets/images/logo.png" alt="logo">
+                <span>途迹网</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="login-wrap tc-main" style="margin: 0">
+    <div class="login-bg">
+        <img src="__TMPL__/public/assets/images//login-bg.jpg" alt="login-bg">
+    </div>
+    <div class="login-box container">
+        <form class="login-form js-ajax-form" id="login-form" action="{:url('user/login/doLogin')}" method="post">
+            <div class="login-title">用户登录</div>
+            <div class="form-item">
+                <label><i class="fa fa-user"></i></label>
+                <input type="text" id="input_username" name="username" placeholder="用户名/邮箱/手机号" required>
+            </div>
+            <div class="form-item">
+                <label><i class="fa fa-lock"></i></label>
+                <input type="password" id="input_password" name="password" placeholder="密码" required>
+            </div>
+            <div class="form-item">
+                <label><i class="fa fa-lock"></i></label>
+                <input type="text" name="captcha" placeholder="验证码" class="form-control captcha"
+                       style="width: 150px;float: left" required>
+                <captcha height="38" width="145" font-size="20"/>
+            </div>
+            <!--<div class="form-item remember">-->
+            <!--<label><input type="checkbox" name="remember">记住密码</label>-->
+            <!--</div>-->
+            <div class="form-item">
+                <input type="hidden" name="redirect" value="">
+                <button  class="js-ajax-submit" type="submit">登 录</button>
+            </div>
+            <div class="forget-register">
+                <a href="{:cmf_url('user/Login/findPassword')}">忘记密码</a>
+                <a href="{:cmf_url('user/Register/index')}">注册 ></a>
+            </div>
+            <hr style="border: 1px solid #f2f2f2">
+            <div class="login-other">
+                <label>其他方式登录：</label>
+                <a href=""><i class="fa fa-qq"></i></a>
+                <a href=""><i class="fa fa-wechat"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /container -->
+<include file="public@footer"/>
+
+<include file="public@scripts"/>
+</body>
+</html>

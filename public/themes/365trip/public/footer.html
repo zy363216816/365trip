@@ -1,0 +1,22 @@
+<!-- Footer ================================================== -->
+<div id="footer">
+    <div class="container">
+        <hook name="footer_start"/>
+        <p>
+            <notempty name="site_info.site_icp">
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">{$site_info.site_icp}</a>
+                <else/>
+                请在后台设置"网站信息"设置"ICP备"
+            </notempty>
+            <notempty name="site_info.site_gwa">
+                <img src="__TMPL__/public/assets/images/ghs.png">
+                <a href="http://beian.gov.cn/" target="_blank">{$site_info.site_gwa}</a>
+                <else/>
+                请在后台设置"网站信息"设置"公网安备"
+            </notempty>
+        </p>
+    </div>
+</div>
+<div id="backtotop">
+    <i class="fa fa-chevron-circle-up"></i>
+</div>

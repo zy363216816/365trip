@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页 {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+        .caption-wraper {
+            position: absolute;
+            left: 50%;
+            bottom: 2em;
+        }
+        .caption-wraper .caption {
+            position: relative;
+            left: -50%;
+            background-color: rgba(0, 0, 0, 0.54);
+            padding: 0.4em 1em;
+            color: #fff;
+            -webkit-border-radius: 1.2em;
+            -moz-border-radius: 1.2em;
+            -ms-border-radius: 1.2em;
+            -o-border-radius: 1.2em;
+            border-radius: 1.2em;
+        }
+
+        .tc-gridbox {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .caption-wraper {
+                left: 0;
+                bottom: 0.4em;
+            }
+
+            .caption-wraper .caption {
+                left: 0;
+                padding: 0.2em 0.4em;
+                font-size: 0.92em;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+            }
+        }
+
+    </style>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+
+<div class="top-section">
+    <ul id="home-slider" class="list-unstyled">
+        <php>
+            $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+        </php>
+        <slides id="$top_slide_id">
+            <li>
+                <div class="caption-wraper">
+                    <div class="caption">{$vo.title|default=''}</div>
+                </div>
+                <a href="{$vo.url|default=''}"><img src="{:cmf_get_image_url($vo.image)}" alt=""></a>
+            </li>
+        </slides>
+        <noslides id="$top_slide_id">
+            <li>
+                <div class="caption-wraper">
+                    <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+                </div>
+                <a href=""><img src="__TMPL__/public/assets/images/demo/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <div class="caption-wraper">
+                    <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+                </div>
+                <a href=""><img src="__TMPL__/public/assets/images/demo/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <div class="caption-wraper">
+                    <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+                </div>
+                <a href=""><img src="__TMPL__/public/assets/images/demo/3.jpg" alt=""></a>
+            </li>
+        </noslides>
+    </ul>
+    <div class="roll-news">
+        <div class="bd">
+            <ul>
+                <li>
+                    <span>用户：</span>
+                    <a href="">信息1……</a>
+                    <span>时间：</span>
+                </li>
+                <li>
+                    <span>用户：</span>
+                    <a href="">信息2……</a>
+                    <span>时间：</span>
+                </li>
+                <li>
+                    <span>用户：</span>
+                    <a href="">信息3……</a>
+                    <span>时间：</span>
+                </li>
+                <li>
+                    <span>用户：</span>
+                    <a href="">信息3……</a>
+                    <span>时间：</span>
+                </li>
+                <li>
+                    <span>用户：</span>
+                    <a href="">信息3……</a>
+                    <span>时间：</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="padding: 0">
+    <widget name="festival_video">
+        <div class="section">
+            <div class="text-center widget-title">
+                <p class="title">{$widget.title}</p>
+                <p class="sub-title">{$widget.vars.sub_title|default=''}</p>
+            </div>
+            <div class="slide-box">
+                <div class="box-container bd">
+                    <ul class="slide-list video-list">
+                        <li>
+                            <img src="__TMPL__/public/assets/images/demo/video1.jpg" alt="">
+                            <div class="video-play">
+                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
+                                    <span></span>
+                                    <em></em>
+                                </a>
+                            </div>
+                            <div class="video-intro">
+                                视屏简介
+                            </div>
+                        </li>
+                        <li>
+                            <img src="__TMPL__/public/assets/images/demo/video2.jpg" alt="">
+                            <div class="video-play">
+                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
+                                    <span></span>
+                                    <em></em>
+                                </a>
+                            </div>
+                            <div class="video-intro">
+                                视屏简介
+                            </div>
+                        </li>
+                        <li>
+                            <img src="__TMPL__/public/assets/images/demo/video3.jpg" alt="">
+                            <div class="video-play">
+                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
+                                    <span></span>
+                                    <em></em>
+                                </a>
+                            </div>
+                            <div class="video-intro">
+                                视屏简介
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-pager hd">
+                    <ul>
+                        <li><span class="dot"></span></li>
+                        <li><span class="dot"></span></li>
+                        <li><span class="dot"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </widget>
+    <hr class="line-break">
+    <widget name="recommend">
+        <div class="section container">
+            <div class="text-center widget-title">
+                <p class="title">{$widget.title}</p>
+                <p class="sub-title">{$widget.vars.sub_title|default=''}</p>
+            </div>
+            <div class="recommend">
+                <ul>
+                    <li class="first">
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j1.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j2.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j3.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j1.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j2.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/demo/j3.jpg" alt="">
+                        </div>
+                        <div class="detail">
+                            <h3>详情标题</h3>
+                            <div class="detail-intro">
+                                详情简介
+                            </div>
+                        </div>
+                        <a class="link-href" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </widget>
+    <hr class="line-break">
+    <widget name="guides">
+        <div class="section container">
+            <div class="text-center widget-title">
+                <p class="title">{$widget.title}</p>
+                <p class="sub-title">{$widget.vars.sub_title|default=''}</p>
+            </div>
+            <div class="slide-box2 guide">
+                <div class="hd">
+                    <ul>
+                        <li class="male"><span></span></li>
+                        <li class="female"><span></span></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <div class="row">
+                                <div class="guide-photo col-xs-4 col-xs-offset-1">
+                                    <img src="__TMPL__/public/assets/images/photo2.jpg" alt="" class="animated bounceInDown">
+                                    <div class="p-sign animated bounceInUp">
+                                        <p>个性签名</p>
+                                        <p>当你的才华撑不起你的野心时，那你就应该静下心来学习</p>
+                                    </div>
+                                </div>
+                                <div class="guide-intro col-xs-6 col-xs-offset-1 animated bounceInRight">
+                                    <p>姓名：&nbsp;某某某</p>
+                                    <p>性别：&nbsp;女</p>
+                                    <p>年龄：&nbsp;xx</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="row">
+                                <div class="guide-photo col-xs-4 col-xs-offset-1">
+                                    <img src="__TMPL__/public/assets/images/photo1.jpg" alt="" class="animated bounceInDown">
+                                    <div class="p-sign animated bounceInUp">
+                                        <p>个性签名</p>
+                                        <p>春风十里不如你</p>
+                                    </div>
+                                </div>
+                                <div class="guide-intro col-xs-6 col-xs-offset-1 animated bounceInRight">
+                                    <p>姓名：&nbsp;某某某</p>
+                                    <p>性别：&nbsp;女</p>
+                                    <p>年龄：&nbsp;xx</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </widget>
+    <hr class="line-break">
+    <widget name="services">
+        <div class="section container">
+            <div class="text-center widget-title">
+                <p class="title">{$widget.title}</p>
+                <p class="sub-title">{$widget.vars.sub_title|default=''}</p>
+            </div>
+            <php>
+                $services_count = count($widget['vars']['services']);
+                $rows = ceil($services_count/4);
+            </php>
+            <for start="1" end="$rows" comparison="elt" step="1" name="row">
+                <php>
+                    $first_row = ($row-1)*4;
+                    $services = array_slice($widget['vars']['services'],$first_row,4);
+                </php>
+                <div class="row">
+                    <foreach name="services" item="vo">
+                        <div class="col-xs-3">
+                            <div class="service-item">
+                                <a href="#">
+                                    <h3 class="font-large nospace">{$vo.title}</h3>
+                                    <p>{$vo.content}</p>
+                                    <i class="fa fa-{$vo.icon}"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </foreach>
+                </div>
+            </for>
+        </div>
+    </widget>
+    <hr class="line-break">
+    <div class="news">
+        <div class="section container">
+            <widget name="news">
+                <div class="text-center widget-title">
+                    <p class="title">{$widget.title}</p>
+                    <p class="sub-title">{$widget.vars.sub_title|default=''}</p>
+                </div>
+                <div class="row">
+                    <div class="news-box col-xs-6">
+                        <div class="news-tab hd">
+                            <a href="" class="more" target="_blank"></a>
+                            <ul>
+                                <li data-href="">最新</li>
+                                <li data-href="">新闻</li>
+                                <li data-href="">公告</li>
+                            </ul>
+                        </div>
+                        <div class="news-list bd">
+                            <ul>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">新闻标题1</a>
+                                </li>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">新闻标题2</a>
+                                </li>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">新闻标题3</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">新闻标题1</a>
+                                </li>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">新闻标题2</a>
+                                </li>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">新闻标题3</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">测试1</a>
+                                </li>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">测试12</a>
+                                </li>
+                                <li>
+                                    <span>7/03</span>
+                                    <a href="">测试13</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="news-box col-xs-6">
+                        <div class="news-tab hd">
+                            <a href="" class="more" target="_blank"></a>
+                            <ul>
+                                <li data-href="">最新动态</li>
+                                <li data-href="">用户发表</li>
+                            </ul>
+                        </div>
+                        <div class="news-list bd">
+                            <ul>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">标题1</a>
+                                </li>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">标题2</a>
+                                </li>
+                                <li>
+                                    <span>6/29</span>
+                                    <a href="">标题3</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <span>7/02</span>
+                                    <a href="">标题1</a>
+                                </li>
+                                <li>
+                                    <span>7/02</span>
+                                    <a href="">标题2</a>
+                                </li>
+                                <li>
+                                    <span>7/02</span>
+                                    <a href="">标题3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </widget>
+        </div>
+    </div>
+</div>
+<include file="public@footer"/>
+<!-- /container -->
+<include file="public@scripts"/>
+<script src="__TMPL__/public/assets/js/slippry.min.js"></script>
+<script src="__TMPL__/public/assets/js/jquery.SuperSlide.2.1.2.js"></script>
+<script>
+    $(function () {
+        $("#home-slider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+        $("#home-slider").show();
+        $(".slide-box").slide({
+                mainCell: ".bd ul",
+                effect: "leftLoop",
+                autoPlay: true,
+                trigger: "click",
+                delayTime: 1000,
+                mouseOverStop: true,
+                startFun: function (i, c) {
+                },
+                endFun: function (i, c) {
+
+                }
+
+            });
+
+        $(".roll-news").slide({mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:5});
+        $(".news-box").slide({effect:"fold"});
+        $(".guide").slide({effect:"fold"});
+        $(".play-btn").click(function () {
+            var $this = $(this),
+                videoSrc = $this.attr("data-source");
+            var html = '<div class="video-bg"></div>';
+            html += '<div class="video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            $('body').append(html);
+            setTimeout(function () {
+                $(".close-pv").click(function () {
+                    $('.video-bg').remove();
+                    $('.video').remove();
+                });
+            }, 500)
+        });
+
+    });
+</script>
+<hook name="before_body_end"/>
+</body>
+</html>
