@@ -11,7 +11,7 @@ namespace app\portal\controller;
 
 use cmf\controller\HomeBaseController;
 
-class ExpTrripController extends HomeBaseController
+class ExpTripController extends HomeBaseController
 {
 
 }
