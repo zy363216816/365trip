@@ -1,5 +1,5 @@
 <?php	return array (
-  'FestiveVideo/:id' =>
+  'FestiveVideo/:id' => 
   array (
     0 => 'portal/Article/index?cid=4',
     1 => 
@@ -22,7 +22,18 @@
       'id' => '\d+',
       'cid' => '\d+',
     ),
-
+  ),
+  'festival/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=1',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
   ),
   'FestiveVideo' => 
   array (
@@ -38,6 +49,17 @@
   'exp ' => 
   array (
     0 => 'portal/List/index?id=5',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
+  'festival' => 
+  array (
+    0 => 'portal/List/index?id=1',
     1 => 
     array (
     ),
