@@ -22,5 +22,4 @@ return [
     'prefix'   => 'trip_',
     "authcode" => 'xYIXxOLvvVne8Sm1Xp',
     //#COOKIE_PREFIX#
-
 ];
