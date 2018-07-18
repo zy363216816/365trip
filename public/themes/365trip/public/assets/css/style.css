@@ -95,7 +95,9 @@ body.body-white {
     padding: 0 10px !important;
     font-size: 1em;
 }
-
+#main-menu li.active{
+    background: #f80;
+}
 /*tc widget*/
 .tc-main {
     margin-top: 20px;
