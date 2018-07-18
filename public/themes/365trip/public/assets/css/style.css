@@ -1261,10 +1261,10 @@ hr.line-break {
     display: block;
     width: 68px;
     height: 68px;
-    transition: All 0.4s ease-in-out;
-    -webkit-transition: All 0.4s ease-in-out;
-    -moz-transition: All 0.4s ease-in-out;
-    -o-transition: All 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    -webkit-transition: transform 0.4s ease-in-out;
+    -moz-transition: transform 0.4s ease-in-out;
+    -o-transition: transform 0.4s ease-in-out;
 }
 
 .guide .hd li span:hover {
@@ -1274,11 +1274,17 @@ hr.line-break {
 }
 
 .guide .hd li.male span {
-    background: url("../images/male.png") center no-repeat;
+    background: url("../images/male.png") no-repeat;
+    background-position: 0;
 }
 
 .guide .hd li.female span {
-    background: url("../images/female.png") center no-repeat;
+    background: url("../images/female.png") no-repeat;
+    background-position: 0;
+}
+
+.guide .hd li.on span {
+    background-position: -68px;
 }
 
 .guide .bd ul {
@@ -1445,7 +1451,7 @@ hr.line-break {
     right: 0;
 }
 
-.contact a{
+.contact a {
     padding: 0 !important;
     margin: 0 !important;
     color: #f80 !important;
@@ -1453,7 +1459,7 @@ hr.line-break {
     line-height: 35px !important;
 }
 
-.roll-news{
+.roll-news {
     position: absolute;
     right: 0;
     top: 0;
@@ -1461,13 +1467,16 @@ hr.line-break {
     overflow: hidden;
     z-index: 9999;
 }
-.roll-news ul{
+
+.roll-news ul {
     margin: 0;
     padding: 0 10px;
 }
-.roll-news ul li{
+
+.roll-news ul li {
     list-style: none;
 }
-.roll-news ul li *{
+
+.roll-news ul li * {
     color: #e4ff00;
 }
