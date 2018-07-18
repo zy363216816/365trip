@@ -22,6 +22,7 @@
       'id' => '\d+',
       'cid' => '\d+',
     ),
+
   ),
   'FestiveVideo' => 
   array (
