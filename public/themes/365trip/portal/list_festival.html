@@ -9,117 +9,69 @@
 </head>
 <body class="body-white">
 <include file="public@nav"/>
+<div class="festival">
+    <div class="video">
+        <a class="play" href="#">
+            <span></span>
+            <em></em>
+        </a>
+        <video id="video" width="100%">
+            <source src="__TMPL__/public/assets/video/festival.mp4" type="video/mp4">
+            您的浏览器不支持 HTML5 video 标签。
+        </video>
+        <div class="video-list">
+            <ol>
+                <li><a href="">节日一</a></li>
+                <li><a href="">节日二</a></li>
+                <li><a href="">节日三</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
 <div class="container">
     <php>$demo_time=2;</php>
-    <h2>{$category.name}</h2>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="">
-                <php>
-                    $where=[
-                    'post.create_time'=>['egt',0]
-                    ];
-                    $page=[
-                    'list_rows'=>10,
-                    'next'=>'下一页',
-                    'prev'=>'上一页'
-                    ];
-                </php>
-                <portal:articles item="vo" where="$where" order="post.create_time DESC" page="$page"
-                                 relation="categories"
-                                 categoryIds="$category.id"
-                                 returnVarName="articles_data">
-                    <div class="list-boxes">
-                        <h2><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}">{$vo.post_title}</a>
-                        </h2>
-                        <p>{$vo.post_excerpt}</p>
-                        <div>
-                            <div class="pull-left">
-                                <div class="list-actions">
-                                    <a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
-                                    <a href="{:url('portal/Article/doLike',array('id'=>$vo['id']))}"
-                                       class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a>
-                                    <a href="{:url('user/Favorite/add',array('id'=>$vo['id'],'cid'=>$category['id']))}"
-                                       class="js-favorite-btn"
-                                       data-id="{$vo.id}"
-                                       data-table="portal_post"
-                                       data-title="{:base64_encode($vo.post_title)}"
-                                       data-url="{:cmf_url_encode('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}"
-                                    >
-                                        <i class="fa fa-star-o"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <a class="btn btn-warning btn-sm pull-right"
-                               href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}">查看更多</a>
+    <div class="section latest">
+        <h3>近期最热节日</h3>
+        <div class="list">
+            <ul>
+                <li>
+                    <a href="">
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/jr.jpg" alt="">
                         </div>
-                    </div>
-                </portal:articles>
-
-            </div>
-            <ul class="pagination">
-                <page/>
+                        <p>日期</p>
+                        <p>地点</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/jr1.jpg" alt="">
+                        </div>
+                        <p>日期</p>
+                        <p>地点</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/zz.jpg" alt="">
+                        </div>
+                        <p>日期</p>
+                        <p>地点</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="img">
+                            <img src="__TMPL__/public/assets/images/zz.jpg" alt="">
+                        </div>
+                        <p>日期</p>
+                        <p>地点</p>
+                    </a>
+                </li>
             </ul>
-        </div>
-        <div class="col-md-3">
-
-            <widget name="hottest_articles">
-                <div class="tc-box">
-                    <div class="headtitle">
-                        <h2>{$widget.title}</h2>
-                    </div>
-                    <div class="ranking">
-                        <php>
-                            $hot_articles=[];
-                        </php>
-                        <ul class="list-unstyled">
-                            <portal:articles limit="5" order="post.post_hits DESC"
-                                             categoryIds="$widget.vars.hottest_articles_category_id">
-                                <php>$top=$key<3?"top3":"";</php>
-                                <li class="{$top}">
-                                    <i>{$key+1}</i>
-                                    <a title="{$vo.post_title}"
-                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">
-                                        {$vo.post_title}
-                                    </a>
-                                </li>
-                            </portal:articles>
-                        </ul>
-                    </div>
-                </div>
-            </widget>
-
-
-            <widget name="last_articles">
-                <div class="tc-box">
-                    <div class="headtitle">
-                        <h2>{$widget.title}</h2>
-                    </div>
-                    <div class="posts">
-                        <portal:articles limit="5" order="post.published_time DESC"
-                                         categoryIds="$widget.vars.last_articles_category_id">
-                            <dl class="dl-horizontal">
-                                <dt>
-                                    <a class="img-wraper"
-                                       href="{:cmf_url('portal/Article/index',array('id'=>$vo.id))}">
-                                        <if condition="empty($vo.more.thumbnail)">
-                                            <img src="__TMPL__/public/assets/images/default_tupian4.png"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                            <else/>
-                                            <img src="{:cmf_get_image_url($vo.more.thumbnail)}"
-                                                 class="img-responsive" alt="{$vo.post_title}"/>
-                                        </if>
-                                    </a>
-                                </dt>
-                                <dd>
-                                    <a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">{$vo.post_title}</a>
-                                </dd>
-                            </dl>
-                        </portal:articles>
-                    </div>
-                </div>
-            </widget>
-
+            <a href="" class="more">查看更多>></a>
         </div>
     </div>
 </div>

@@ -498,7 +498,7 @@
             var $this = $(this),
                 videoSrc = $this.attr("data-source");
             var html = '<div class="video-bg"></div>';
-            html += '<div class="video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            html += '<div class="pop-video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
             $('body').append(html);
             setTimeout(function () {
                 $(".close-pv").click(function () {

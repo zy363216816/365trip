@@ -865,7 +865,7 @@ ul.tc-photos {
     margin-bottom: 60px;
 }
 
-.video {
+.pop-video {
     position: fixed;
     left: 50%;
     z-index: 10000;
@@ -878,7 +878,7 @@ ul.tc-photos {
 }
 
 @media screen and (max-width: 1366px) {
-    .video {
+    .pop-video {
         top: 20px;
         width: 970px;
         height: 500px;
@@ -1481,4 +1481,159 @@ hr.line-break {
 
 .roll-news ul li * {
     color: #e4ff00;
+}
+
+/************ pages************/
+.festival{
+    width: 100%;
+}
+.festival a {
+    text-decoration: none;
+}
+
+.festival .video {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.festival .video:hover .play span {
+    opacity: 1;
+    animation: play_btn linear 2s infinite;
+    -webkit-animation: play_btn linear 2s infinite;
+}
+
+.festival .video:hover .play em {
+    opacity: 1;
+}
+
+.festival .video .play {
+    display: block;
+    position: absolute;
+    width: 62px;
+    height: 65px;
+    left: 50%;
+    top: 50%;
+    margin-left: -31px;
+    margin-top: -58px;
+    z-index: 1;
+}
+
+.festival .video .play span {
+    position: absolute;
+    width: 62px;
+    height: 65px;
+    left: 50%;
+    top: 50%;
+    margin-left: -31px;
+    margin-top: -58px;
+    background: url("../images/play-circle.png") no-repeat;
+    opacity: .5;
+}
+
+.festival .video .play em {
+    position: absolute;
+    width: 34px;
+    height: 36px;
+    left: 50%;
+    top: 50%;
+    margin-left: -14px;
+    margin-top: -44px;
+    background: url("../images/play.png") no-repeat;
+    opacity: .5;
+}
+
+.festival .video .video-list {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -150px;
+}
+
+.festival .video .video-list li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: url("../images/v-1.png") no-repeat;
+    margin-right: 15px;
+}
+
+.festival .video .video-list li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 60px;
+    margin-left: 10px;
+}
+
+@keyframes play_btn {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.container .section {
+    padding: 20px 0;
+}
+
+.container .latest h3 {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: url("../images/tit-1.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.container .latest .list {
+    margin-top: 15px;
+}
+
+.container .latest .list li {
+    display: inline-block;
+    width: 280px;
+    -webkit-box-shadow: 0 1px 1px #ccc;
+    box-shadow: 0 1px 1px #ccc;
+    overflow: hidden;
+    margin-right: 7px;
+}
+
+.container .latest .list li .img {
+    width: 280px;
+    height: 190px;
+    overflow: hidden;
+}
+
+.container .latest .list li:hover img {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.container .latest .list li p {
+    padding: 0 5px;
+}
+
+.container .latest .list img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+}
+
+.container .more {
+    display: block;
+    width: 200px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #1E9FFF;
+    color: #fff;
+    margin: 15px auto;
 }
