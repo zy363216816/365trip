@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+<div class="container">
+    <php>$demo_time=2;</php>
+    <div class="hotel">
+        <div class="choice">
+            <h3>选择酒店</h3>
+            <form action="" class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="出行目的地/酒店" title="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="入住日期" title="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="退房日期" title="">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="人数" title="">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="搜索" title="">
+                </div>
+            </form>
+        </div>
+        <div class="selection">
+            <h3>精选酒店</h3>
+            <div class="tabs">
+                <div class="tabs-nav">
+                    <ul>
+                        <li class="active">热门地点</li>
+                        <li>购物天堂</li>
+                        <li>美食诱惑</li>
+                        <li>当季热玩</li>
+                        <li>特价酒店</li>
+                    </ul>
+                </div>
+                <div class="tabs-content">
+                    <div class="content-item">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/cd.jpg" alt="成都">
+                                    <p>成都</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/shh.jpg" alt="上海">
+                                    <p>上海</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
+                                    <p>三亚</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
+                                    <p>三亚</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public@footer"/>
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>

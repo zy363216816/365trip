@@ -1,7 +1,7 @@
 {
-    "name": "文章列表页",
+    "name": "酒店列表页",
     "action": "portal/List/index",
-    "description": "文章列表模板文件",
+    "description": "酒店列表模板文件",
     "order": 10.0,
     "more": {
         "vars": {
@@ -41,7 +41,8 @@
                             "multi": true
                         },
                         "placeholder": "请选择分类",
-                         "rule": {
+                        "tip": "",
+                        "rule": {
                             "require": true
                         }
                     }

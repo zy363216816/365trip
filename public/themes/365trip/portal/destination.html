@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+<div class="container">
+    <php>$demo_time=2;</php>
+    <div class="destination">
+        <div class="top">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div>
+                        <div class="col-xs-12">
+                            <img src="__TMPL__/public/assets/images/shh.jpg" alt="">
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="__TMPL__/public/assets/images/cd.jpg" alt="">
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="__TMPL__/public/assets/images/sy.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <a href="">
+                        <img src="__TMPL__/public/assets/images/shh.jpg" alt="" height="447">
+                    </a>
+                </div>
+                <div class="col-xs-3">
+                    <form action="" class="search">
+                        <div class="form-group">
+                            <label for="">目的地</label>
+                            <input type="text" class="form-control" placeholder="目的地" title="目的地">
+                        </div>
+                        <div class="form-group">
+                            <label for="">出发时间</label>
+                            <input type="text" class="form-control" title="">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block" title="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="in-season">
+            <h3>当季热玩</h3>
+            <div class="tabs">
+                <div class="tabs-nav">
+                    <ul class="clearfix">
+                        <li><a href="">1月</a></li>
+                        <li><a href="">2月</a></li>
+                        <li><a href="">3月</a></li>
+                        <li><a href="">4月</a></li>
+                        <li class="on"><a href="">5月</a></li>
+                        <li><a href="">6月</a></li>
+                        <li><a href="">7月</a></li>
+                        <li><a href="">8月</a></li>
+                        <li><a href="">9月</a></li>
+                        <li><a href="">10月</a></li>
+                        <li><a href="">11月</a></li>
+                        <li><a href="">12月</a></li>
+                    </ul>
+                </div>
+                <div class="tabs-content">
+                    <div class="content-item">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/cd.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/cd.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="__TMPL__/public/assets/images/cd.jpg" alt="">
+                                    <p>地点</p>
+                                </a>
+                            </li>
+                            <li>
+                                <img src="__TMPL__/public/assets/images/cd.jpg" alt="">
+                                <a class="more">
+                                    <span>更多</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public@footer"/>
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>

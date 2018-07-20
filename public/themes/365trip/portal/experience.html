@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="body-white">
+<include file="public@nav"/>
+<div class="person-custom">
+    <div class="custom-bg">
+        <img src="__TMPL__/public/assets/images/custom.jpg" alt="">
+    </div>
+    <div class="publish-exp">
+        <a href="">发布个人体验旅行</a>
+    </div>
+</div>
+<div class="container">
+    <php>$demo_time=2;</php>
+    <h3 class="category-tit">{$category.name}</h3>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-pic">
+                        <div class="exp-user">
+                            <div class="avatar">
+                                <img src="__TMPL__/public/assets/images/avatar.jpg" alt="">
+                            </div>
+                            <div class="username">用户名</div>
+                        </div>
+                        <a href="" target="_blank">
+                            <img src="__TMPL__/public/assets/images/expdemo.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="exp-intro">
+                        <p class="exp-name">
+                            <a href="">体验旅行名</a>
+                        </p>
+                        <p>目的地：xxx</p>
+                        <p>行程天数：xxx</p>
+                        <p>预算：xxx</p>
+                        <p class="exp-details">
+                            简介XXXXXXXXXXXXXXXXXXXx
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
+
+<include file="public@footer"/>
+<include file="public@scripts"/>
+<hook name="before_body_end"/>
+</body>
+</html>

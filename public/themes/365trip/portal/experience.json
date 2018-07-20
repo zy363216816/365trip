@@ -1,0 +1,242 @@
+{
+    "name": "体验旅行首页",
+    "action": "portal/Index/index",
+    "description": "体验旅行模板文件",
+    "order": 5.0,
+    "more": {
+        "vars": {
+            "top_slide": {
+                "title": "顶部幻灯片",
+                "value": "",
+                "type": "text",
+                "dataSource": {
+                    "api": "admin/Slide/index",
+                    "multi": false
+                },
+                "placeholder": "请选择顶部幻灯片",
+                "tip": "顶部幻灯片",
+                "rule": {
+                    "require": true
+                }
+            }
+        },
+        "widgets": {
+            "festival_video": {
+                "title": "节日视频",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "Festival Video",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "video": {
+                        "title": "视屏源",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/Category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "recommend": {
+                "title": "景点推荐",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "Festival Video",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "last_news_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/Category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            },
+            "services": {
+                "title": "平台服务",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "Service",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "services": {
+                        "title": "服务事项",
+                        "value": [
+                            {
+                                "title": "预约导游",
+                                "icon": "map-signs",
+                                "content": "我们有专业的导游服务"
+                            },
+                            {
+                                "title": "酒店预订",
+                                "icon": "hotel",
+                                "content": "提供安全舒适干净的住宿环境,优选价格实惠"
+                            },
+                            {
+                                "title": "门票预订",
+                                "icon": "ticket",
+                                "content": "提供最优惠的门票预订,不收取任何额外费用"
+                            },
+                            {
+                                "title": "车票/机票预订",
+                                "icon": "car",
+                                "content": "提供的安全可靠的准时的行程服务"
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "icon": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "guides": {
+                "title": "导游推荐",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "EveryDay Star",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "guide": {
+                        "title": "服务事项",
+                        "value": [
+                            {
+                                "title": "预约导游",
+                                "icon": "map-signs",
+                                "content": "我们有专业的导游服务"
+                            },
+                            {
+                                "title": "酒店预订",
+                                "icon": "hotel",
+                                "content": "提供安全舒适干净的住宿环境,优选价格实惠"
+                            },
+                            {
+                                "title": "门票预订",
+                                "icon": "ticket",
+                                "content": "提供最优惠的门票预订,不收取任何额外费用"
+                            },
+                            {
+                                "title": "车票/机票预订",
+                                "icon": "car",
+                                "content": "提供的安全可靠的准时的行程服务"
+                            }
+                        ],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text",
+                                "rule": {
+                                    "require": true
+                                }
+                            },
+                            "icon": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "content": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "textarea"
+                            }
+                        },
+                        "tip": ""
+                    }
+                }
+            },
+            "news": {
+                "title": "新闻资讯",
+                "display": "1",
+                "vars": {
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "News",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "last_news_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/Category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
