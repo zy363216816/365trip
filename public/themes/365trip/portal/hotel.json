@@ -1,6 +1,6 @@
 {
     "name": "酒店列表页",
-    "action": "portal/List/index",
+    "action": "portal/index/home",
     "description": "酒店列表模板文件",
     "order": 10.0,
     "more": {

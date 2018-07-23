@@ -131,8 +131,9 @@ class PortalCategoryModel extends Model
             //设置别名
             $routeModel = new RouteModel();
             if (!empty($data['alias']) && !empty($id)) {
-                $routeModel->setRoute($data['alias'], 'portal/List/index', ['id' => $id], 2, 5000);
-                $routeModel->setRoute($data['alias'] . '/:id', 'portal/Article/index', ['cid' => $id], 2, 4999);
+                $routeModel->setRoute($data['alias'], 'portal/Index/home', ['id' => $id], 2, 5000);
+                $routeModel->setRoute($data['alias'] . '/list', 'portal/List/index', ['id' => $id], 2, 4999);
+                $routeModel->setRoute($data['alias'] . '/:id', 'portal/Article/index', ['cid' => $id], 2, 4998);
             }
             $routeModel->getRoutes(true);
         }
@@ -179,9 +180,11 @@ class PortalCategoryModel extends Model
 
             $routeModel = new RouteModel();
             if (!empty($data['alias'])) {
-                $routeModel->setRoute($data['alias'], 'portal/List/index', ['id' => $data['id']], 2, 5000);
-                $routeModel->setRoute($data['alias'] . '/:id', 'portal/Article/index', ['cid' => $data['id']], 2, 4999);
+                $routeModel->setRoute($data['alias'], 'portal/Index/home', ['id' => $data['id']], 2, 5000);
+                $routeModel->setRoute($data['alias'] . '/list', 'portal/List/index', ['id' => $data['id']], 2, 4999);
+                $routeModel->setRoute($data['alias'] . '/:id', 'portal/Article/index', ['cid' => $data['id']], 2, 4998);
             } else {
+                $routeModel->deleteRoute('portal/Index/home', ['id' => $data['id']]);
                 $routeModel->deleteRoute('portal/List/index', ['id' => $data['id']]);
                 $routeModel->deleteRoute('portal/Article/index', ['cid' => $data['id']]);
             }

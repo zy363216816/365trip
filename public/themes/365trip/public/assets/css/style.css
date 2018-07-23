@@ -1501,6 +1501,20 @@ hr.line-break {
     position: relative;
 }
 
+.festival .video ul{
+    margin: 0;
+    padding: 0;
+}
+
+.festival .video .bd img{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
 .festival .video:hover .play span {
     opacity: 1;
     animation: play_btn linear 2s infinite;
@@ -1549,26 +1563,27 @@ hr.line-break {
 
 .festival .video .video-list {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -150px;
+    top: 0;
+    right: 120px;
+    height: 100%;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled="true",startColorstr="#B2000000",endColorstr="#B2000000");
+    background-color: rgba(0,0,0,.7);
+    z-index: 10;
 }
-
-.festival .video .video-list li {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    background: url("../images/v-1.png") no-repeat;
-    margin-right: 15px;
+.festival .video .video-list ul{
+    padding: 16px 0;
 }
-
-.festival .video .video-list li a {
-    text-decoration: none;
+.festival .video .video-list a{
     color: #fff;
-    line-height: 60px;
-    margin-left: 10px;
 }
-
+.festival .video .video-list li.on a{
+    color: #00be06;
+}
+.festival .video .video-list li{
+    list-style: none;
+    padding: 11px 20px;
+    font-size: 16px;
+}
 @keyframes play_btn {
     0% {
         -webkit-transform: rotate(0);
@@ -1663,12 +1678,12 @@ hr.line-break {
     text-align: center;
 }
 
-.hotel .selection .tabs .tabs-nav {
+.hotel .selection .hd {
     width: 500px;
     margin: 20px auto;
 }
 
-.hotel .selection .tabs .tabs-nav li {
+.hotel .selection .hd li {
     display: inline-block;
     margin-right: 15px;
     font-size: 18px;
@@ -1678,16 +1693,16 @@ hr.line-break {
     line-height: 30px;
 }
 
-.hotel .selection .tabs .tabs-nav li.active {
+.hotel .selection .hd li.on {
     color: #01af16;
     border-bottom: 2px solid #01af16;
 }
 
-.hotel .selection .tabs .tabs-nav li:hover {
+.hotel .selection .hd li:hover {
     color: #01af16;
 }
 
-.hotel .selection .tabs .tabs-content li {
+.hotel .selection .bd li {
     display: inline-block;
     width: 229px;
     height: 160px;
@@ -1695,12 +1710,12 @@ hr.line-break {
     overflow: hidden;
 }
 
-.hotel .selection .tabs .tabs-content li:hover img {
+.hotel .selection .bd li:hover img {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
 
-.hotel .selection .tabs .tabs-content li p {
+.hotel .selection .bd li p {
     position: absolute;
     top: 45%;
     left: 45%;
@@ -1709,13 +1724,17 @@ hr.line-break {
     font-weight: bold;
 }
 
-.hotel .selection .tabs .tabs-content li img {
+.hotel .selection .bd li img {
     width: 100%;
     height: 100%;
     -webkit-transition: all .6s;
     transition: all .6s;
 }
-
+@media screen and (min-width: 1366px){
+    .hotel{
+        min-height: 595px;
+    }
+}
 /****目的地****/
 .destination .top {
     height: 466px;
@@ -1741,7 +1760,10 @@ hr.line-break {
     background: #fff;
     border-radius: 2px;
 }
-
+.destination .in-season ul{
+    margin: 0;
+    padding: 0;
+}
 .destination .in-season h3 {
     text-align: center;
 }
@@ -2040,7 +2062,7 @@ hr.line-break {
 
 .person-custom .publish-exp {
     position: absolute;
-    top: 100px;
+    top: 45%;
     left: 50%;
     width: 140px;
     margin-left: -70px;

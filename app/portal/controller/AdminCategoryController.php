@@ -61,9 +61,11 @@ class AdminCategoryController extends AdminBaseController
         $categoriesTree      = $portalCategoryModel->adminCategoryTree($parentId);
 
         $themeModel        = new ThemeModel();
+        $indexThemeFiles   = $themeModel->getActionThemeFiles('portal/Index/home');
         $listThemeFiles    = $themeModel->getActionThemeFiles('portal/List/index');
         $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
 
+        $this->assign('index_theme_files', $indexThemeFiles);
         $this->assign('list_theme_files', $listThemeFiles);
         $this->assign('article_theme_files', $articleThemeFiles);
         $this->assign('categories_tree', $categoriesTree);
@@ -128,6 +130,7 @@ class AdminCategoryController extends AdminBaseController
             $categoriesTree      = $portalCategoryModel->adminCategoryTree($category['parent_id'], $id);
 
             $themeModel        = new ThemeModel();
+            $indexThemeFiles   = $themeModel->getActionThemeFiles('portal/Index/home');
             $listThemeFiles    = $themeModel->getActionThemeFiles('portal/List/index');
             $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
 
@@ -136,6 +139,7 @@ class AdminCategoryController extends AdminBaseController
 
             $category['alias'] = $alias;
             $this->assign($category);
+            $this->assign('index_theme_files', $indexThemeFiles);
             $this->assign('list_theme_files', $listThemeFiles);
             $this->assign('article_theme_files', $articleThemeFiles);
             $this->assign('categories_tree', $categoriesTree);

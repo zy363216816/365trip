@@ -1,6 +1,6 @@
 {
     "name": "节日首页",
-    "action": "portal/Index/index",
+    "action": "portal/Index/home",
     "description": "节日首页模板文件",
     "order": 5.0,
     "more": {

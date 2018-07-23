@@ -1,6 +1,6 @@
 {
     "name": "体验旅行首页",
-    "action": "portal/Index/index",
+    "action": "portal/Index/home",
     "description": "体验旅行模板文件",
     "order": 5.0,
     "more": {

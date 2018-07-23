@@ -1,7 +1,7 @@
 {
-    "name": "门票列表页",
-    "action": "portal/index/home",
-    "description": "门票列表模板文件",
+    "name": "旅行公告列表页",
+    "action": "portal/List/index",
+    "description": "旅行公告列表模板文件",
     "order": 10.0,
     "more": {
         "vars": {

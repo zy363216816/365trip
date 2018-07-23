@@ -33,47 +33,43 @@
             </form>
         </div>
         <div class="selection">
-            <h3>精选酒店</h3>
-            <div class="tabs">
-                <div class="tabs-nav">
-                    <ul>
-                        <li class="active">热门地点</li>
-                        <li>购物天堂</li>
-                        <li>美食诱惑</li>
-                        <li>当季热玩</li>
-                        <li>特价酒店</li>
-                    </ul>
-                </div>
-                <div class="tabs-content">
-                    <div class="content-item">
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <img src="__TMPL__/public/assets/images/cd.jpg" alt="成都">
-                                    <p>成都</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="__TMPL__/public/assets/images/shh.jpg" alt="上海">
-                                    <p>上海</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
-                                    <p>三亚</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
-                                    <p>三亚</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <h3>主题酒店</h3>
+            <div class="hd">
+                <ul>
+                    <li>热门地点</li>
+                    <li>购物天堂</li>
+                    <li>美食诱惑</li>
+                    <li>当季热玩</li>
+                    <li>特价酒店</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="__TMPL__/public/assets/images/cd.jpg" alt="成都">
+                            <p>成都</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="__TMPL__/public/assets/images/shh.jpg" alt="上海">
+                            <p>上海</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
+                            <p>三亚</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="__TMPL__/public/assets/images/sy.jpg" alt="三亚">
+                            <p>三亚</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -81,5 +77,11 @@
 <include file="public@footer"/>
 <include file="public@scripts"/>
 <hook name="before_body_end"/>
+<script src="__TMPL__/public/assets/js/jquery.SuperSlide.2.1.2.js"></script>
+<script>
+    $(function () {
+        $(".selection").slide({effect: "fold", autoPlay: true});
+    })
+</script>
 </body>
 </html>

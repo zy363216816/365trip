@@ -15,16 +15,23 @@
             <span></span>
             <em></em>
         </a>
-        <video id="video" width="100%">
-            <source src="__TMPL__/public/assets/video/festival.mp4" type="video/mp4">
-            您的浏览器不支持 HTML5 video 标签。
-        </video>
-        <div class="video-list">
-            <ol>
-                <li><a href="">节日一</a></li>
-                <li><a href="">节日二</a></li>
-                <li><a href="">节日三</a></li>
-            </ol>
+        <div class="video-list hd">
+            <ul>
+                <li><a href="">云南：泼水节</a></li>
+                <li><a href="">xxxx: xxxxxxxxxxxxx</a></li>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+                <li>
+                    <img src="__TMPL__/public/assets/images/festival1.jpg" alt="">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img src="__TMPL__/public/assets/images/festival.jpg" alt="">
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -78,5 +85,25 @@
 <include file="public@footer"/>
 <include file="public@scripts"/>
 <hook name="before_body_end"/>
+
+<script src="__TMPL__/public/assets/js/jquery.SuperSlide.2.1.2.js"></script>
+<script>
+    $(function () {
+        $(".video").slide({effect:"fold",autoPlay:true});
+        $(".play").click(function () {
+            var $this = $(this),
+                videoSrc = $this.attr("data-source");
+            var html = '<div class="video-bg"></div>';
+            html += '<div class="pop-video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            $('body').append(html);
+            setTimeout(function () {
+                $(".close-pv").click(function () {
+                    $('.video-bg').remove();
+                    $('.pop-video').remove();
+                });
+            }, 500)
+        });
+    })
+</script>
 </body>
 </html>
