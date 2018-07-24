@@ -656,6 +656,7 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_category` (
   `seo_title` varchar(100) NOT NULL DEFAULT '',
   `seo_keywords` varchar(255) NOT NULL DEFAULT '',
   `seo_description` varchar(255) NOT NULL DEFAULT '',
+  `index_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类主页模板',
   `list_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类列表模板',
   `one_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类文章页模板',
   `more` text COMMENT '扩展属性',

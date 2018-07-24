@@ -1843,7 +1843,13 @@ hr.line-break {
 .ticket {
     margin-top: 15px;
 }
-
+.ticket ul{
+    padding: 0;
+    margin: 0;
+}
+.ticket ul li{
+    list-style: none;
+}
 .ticket .front-page .recommend-lft {
     width: 79%;
     float: left;
@@ -2145,3 +2151,39 @@ hr.line-break {
     padding: 15px 10px 10px 20px;
     background: #fff;
 }
+
+/*=============旅行公告==========*/
+
+.notice .top-section .top-bg{
+    height: 400px;
+}
+.notice .top-section .top-bg img{
+    width: 100%;
+    height: 100%;
+}
+.notice .top-section .content{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+.notice .top-section .content p{
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+.notice .publish-trip {
+    margin-top: 20px;
+    text-align: center;
+}
+.notice .publish-trip a{
+    text-align: center;
+    background: #2780E3;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.notice .publish-trip a:hover{
+    background: #f80;
+}
+

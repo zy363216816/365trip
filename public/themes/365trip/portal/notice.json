@@ -9,11 +9,11 @@
         },
         "widgets":{
             "hottest_articles": {
-                "title": "热门文章",
+                "title": "最新发布",
                 "display": "1",
                 "vars": {
                     "hottest_articles_category_id": {
-                        "title": "文章分类ID",
+                        "title": "分类ID",
                         "value": "",
                         "type": "text",
                         "dataSource": {
@@ -29,11 +29,11 @@
                 }
             },
             "last_articles": {
-                "title": "最新发布",
+                "title": "热门地点",
                 "display": "1",
                 "vars": {
                     "last_articles_category_id": {
-                        "title": "文章分类ID",
+                        "title": "分类ID",
                         "value": "",
                         "type": "text",
                         "dataSource": {

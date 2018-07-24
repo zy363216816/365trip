@@ -35,7 +35,7 @@ class AdminCategoryController extends AdminBaseController
     public function index()
     {
         $portalCategoryModel = new PortalCategoryModel();
-        $categoryTree        = $portalCategoryModel->adminCategoryTableTree();
+        $categoryTree = $portalCategoryModel->adminCategoryTableTree();
 
         $this->assign('category_tree', $categoryTree);
         return $this->fetch();
@@ -56,13 +56,13 @@ class AdminCategoryController extends AdminBaseController
      */
     public function add()
     {
-        $parentId            = $this->request->param('parent', 0, 'intval');
+        $parentId = $this->request->param('parent', 0, 'intval');
         $portalCategoryModel = new PortalCategoryModel();
-        $categoriesTree      = $portalCategoryModel->adminCategoryTree($parentId);
+        $categoriesTree = $portalCategoryModel->adminCategoryTree($parentId);
 
-        $themeModel        = new ThemeModel();
-        $indexThemeFiles   = $themeModel->getActionThemeFiles('portal/Index/home');
-        $listThemeFiles    = $themeModel->getActionThemeFiles('portal/List/index');
+        $themeModel = new ThemeModel();
+        $indexThemeFiles = $themeModel->getActionThemeFiles('portal/Index/home');
+        $listThemeFiles = $themeModel->getActionThemeFiles('portal/List/index');
         $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
 
         $this->assign('index_theme_files', $indexThemeFiles);
@@ -127,16 +127,19 @@ class AdminCategoryController extends AdminBaseController
             $category = PortalCategoryModel::get($id)->toArray();
 
             $portalCategoryModel = new PortalCategoryModel();
-            $categoriesTree      = $portalCategoryModel->adminCategoryTree($category['parent_id'], $id);
+            $categoriesTree = $portalCategoryModel->adminCategoryTree($category['parent_id'], $id);
 
-            $themeModel        = new ThemeModel();
-            $indexThemeFiles   = $themeModel->getActionThemeFiles('portal/Index/home');
-            $listThemeFiles    = $themeModel->getActionThemeFiles('portal/List/index');
+            $themeModel = new ThemeModel();
+            $indexThemeFiles = $themeModel->getActionThemeFiles('portal/Index/home');
+            $listThemeFiles = $themeModel->getActionThemeFiles('portal/List/index');
             $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
 
             $routeModel = new RouteModel();
-            $alias      = $routeModel->getUrl('portal/List/index', ['id' => $id]);
-
+            if ($category['index_tpl'] != null || !empty($category['index_tpl'])){
+                $alias = $routeModel->getUrl('portal/Index/home', ['id' => $id]);
+            }else{
+                $alias = $routeModel->getUrl('portal/List/index', ['id' => $id]);
+            }
             $category['alias'] = $alias;
             $this->assign($category);
             $this->assign('index_theme_files', $indexThemeFiles);
@@ -199,8 +202,8 @@ class AdminCategoryController extends AdminBaseController
      */
     public function select()
     {
-        $ids                 = $this->request->param('ids');
-        $selectedIds         = explode(',', $ids);
+        $ids = $this->request->param('ids');
+        $selectedIds = explode(',', $ids);
         $portalCategoryModel = new PortalCategoryModel();
 
         $tpl = <<<tpl
@@ -216,7 +219,7 @@ tpl;
 
         $categoryTree = $portalCategoryModel->adminCategoryTableTree($selectedIds, $tpl);
 
-        $where      = ['delete_time' => 0];
+        $where = ['delete_time' => 0];
         $categories = $portalCategoryModel->where($where)->select();
 
         $this->assign('categories', $categories);
@@ -260,7 +263,7 @@ tpl;
     public function delete()
     {
         $portalCategoryModel = new PortalCategoryModel();
-        $id                  = $this->request->param('id');
+        $id = $this->request->param('id');
         //获取删除的内容
         $findCategory = $portalCategoryModel->where('id', $id)->find();
 
@@ -268,7 +271,7 @@ tpl;
             $this->error('分类不存在!');
         }
 //判断此分类有无子分类（不算被删除的子分类）
-        $categoryChildrenCount = $portalCategoryModel->where(['parent_id' => $id,'delete_time' => 0])->count();
+        $categoryChildrenCount = $portalCategoryModel->where(['parent_id' => $id, 'delete_time' => 0])->count();
 
         if ($categoryChildrenCount > 0) {
             $this->error('此分类有子类无法删除!');
@@ -280,11 +283,11 @@ tpl;
             $this->error('此分类有文章无法删除!');
         }
 
-        $data   = [
-            'object_id'   => $findCategory['id'],
+        $data = [
+            'object_id' => $findCategory['id'],
             'create_time' => time(),
-            'table_name'  => 'portal_category',
-            'name'        => $findCategory['name']
+            'table_name' => 'portal_category',
+            'name' => $findCategory['name']
         ];
         $result = $portalCategoryModel
             ->where('id', $id)

@@ -96,7 +96,7 @@
                             <label for="input-index_tpl">主页模板</label>
                             <div>
                                 <select class="form-control" name="index_tpl" id="input-index_tpl">
-                                    <option value="">请选择主页模板（不选择默认显示列表页）</option>
+                                    <option value="">请选择主页模板</option>
                                     <foreach name="index_theme_files" item="vo">
                                         <php>$value=preg_replace('/^portal\//','',$vo['file']);</php>
                                         <option value="{$value}">{$vo.name} {$vo.file}.html</option>
@@ -142,6 +142,7 @@
 </div>
 <script type="text/javascript" src="__STATIC__/js/admin.js"></script>
 <script>
+    $('#input-index_tpl').val("{$index_tpl|default=''}");
     $('#input-list_tpl').val("{$list_tpl|default=''}");
     $('#input-one_tpl').val("{$one_tpl|default=''}");
 </script>

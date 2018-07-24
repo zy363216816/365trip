@@ -119,7 +119,7 @@ class NavMenuModel extends Model
      * 获取共享nav数据
      * @return array
      */
-    private function getNavDatas()
+    private function  getNavDatas()
     {
         $apps = cmf_scan_dir(APP_PATH . "*");
         $navs = [];

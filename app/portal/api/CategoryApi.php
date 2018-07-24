@@ -48,7 +48,7 @@ class CategoryApi
         $return = [
             //'name'  => '文章分类',
             'rule'  => [
-                'action' => 'portal/List/index',
+                'action' => 'portal/Index/home',
                 'param'  => [
                     'id' => 'id'
                 ]

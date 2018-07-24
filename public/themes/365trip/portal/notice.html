@@ -9,11 +9,26 @@
 </head>
 <body class="body-white">
 <include file="public@nav"/>
-<div class="container">
+<div class="container notice">
+    <div class="top-section">
+        <div class="top-bg">
+            <img src="__TMPL__/public/assets/images/t1.jpg" alt="">
+        </div>
+        <div class="content">
+            <div class="count">
+                <p>累计发布结伴信息:1000条</p>
+                <p>500人参加报名</p>
+            </div>
+            <div class="publish-trip">
+                <a href="">发布我的旅行</a>
+            </div>
+        </div>
+    </div>
     <php>$demo_time=2;</php>
-    <h2>{$category.name}</h2>
+    <h3 class="category-tit">结伴信息</h3>
     <div class="row">
         <div class="col-md-9">
+
             <div class="">
                 <php>
                     $where=[
