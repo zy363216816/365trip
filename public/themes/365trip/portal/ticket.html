@@ -44,16 +44,16 @@
             </div>
         </div>
         <div class="side">
-            <div class="tabs-title">
+            <div class="tabs-title hd">
                 <span>身边景点</span>
                 <ul>
-                    <li class="active"><a href="">贵阳</a></li>
+                    <li><a href="">贵阳</a></li>
                     <li><a href="">安顺</a></li>
                     <li><a href="">毕节</a></li>
                 </ul>
             </div>
-            <div class="tabs-content">
-                <div class="tab-item show">
+            <div class="tabs-content bd">
+                <div class="tab-item">
                     <ul>
                         <li>
                             <a href="">
@@ -157,8 +157,8 @@
         <div class="other-hot">
             <p>其他热门景点</p>
             <div class="hot-recommend">
-                <ul>
-                    <li>
+                <ul class="row">
+                    <li class="col-sm-3">
                         <a href="">
                             <img src="__TMPL__/public/assets/images/jd.jpeg" alt="">
                             <p>
@@ -166,7 +166,7 @@
                             </p>
                         </a>
                     </li>
-                    <li>
+                    <li class="col-sm-3">
                         <a href="">
                             <img src="__TMPL__/public/assets/images/jd.jpeg" alt="">
                             <p>
@@ -174,7 +174,7 @@
                             </p>
                         </a>
                     </li>
-                    <li>
+                    <li class="col-sm-3">
                         <a href="">
                             <img src="__TMPL__/public/assets/images/jd.jpeg" alt="">
                             <p>
@@ -182,7 +182,7 @@
                             </p>
                         </a>
                     </li>
-                    <li>
+                    <li class="col-sm-3">
                         <a href="">
                             <img src="__TMPL__/public/assets/images/jd.jpeg" alt="">
                             <p>
@@ -198,5 +198,11 @@
 <include file="public@footer"/>
 <include file="public@scripts"/>
 <hook name="before_body_end"/>
+<script src="__TMPL__/public/assets/js/jquery.SuperSlide.2.1.2.js"></script>
+<script>
+    $(function () {
+       $(".side").slide({mainCell:".bd"})
+    });
+</script>
 </body>
 </html>

@@ -71,6 +71,18 @@
       'cid' => '\d+',
     ),
   ),
+  'community/:id' => 
+  array (
+    0 => 'portal/Article/index?cid=8',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+      'cid' => '\d+',
+    ),
+  ),
   'festival/list' => 
   array (
     0 => 'portal/List/index?id=1',
@@ -137,10 +149,22 @@
       'id' => '\d+',
     ),
   ),
+  'community/list' => 
+  array (
+    0 => 'portal/List/index?id=8',
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'id' => '\d+',
+    ),
+  ),
   'festival' => 'portal/Index/home?id=1',
   'experience' => 'portal/Index/home?id=5',
   'hotel' => 'portal/Index/home?id=2',
   'notice' => 'portal/Index/home?id=7',
   'destination' => 'portal/Index/home?id=6',
   'ticket' => 'portal/Index/home?id=3',
+  'community' => 'portal/Index/home?id=8',
 );

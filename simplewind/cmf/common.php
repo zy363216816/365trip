@@ -581,6 +581,7 @@ function cmf_get_content_images($content)
         foreach ($images as $img) {
             $img            = pq($img);
             $image          = [];
+            $image['url']   = $img->attr("_url");
             $image['src']   = $img->attr("src");
             $image['title'] = $img->attr("title");
             $image['alt']   = $img->attr("alt");
@@ -589,6 +590,39 @@ function cmf_get_content_images($content)
     }
     \phpQuery::$documents = null;
     return $imagesData;
+}
+
+/**
+ * 获取html文本里的video
+ * @param string $content html 内容
+ * @return array 图片列表 数组item格式<pre>
+ * [
+ *  "src"=>'视频链接',
+ *  "title"=>'视频标签的 title 属性',
+ *  "alt"=>'视频标签的 alt 属性'
+ * ]
+ * </pre>
+ */
+function cmf_get_content_videos($content)
+{
+    //import('phpQuery.phpQuery', EXTEND_PATH);
+    \phpQuery::newDocumentHTML($content);
+    $pq         = pq(null);
+    $videos     = $pq->find("video");
+    $videosData = [];
+    if ($videos->length) {
+        foreach ($videos as $video) {
+            $v              = pq($video);
+            $vi          = [];
+            $vi['url']   = $v->attr("_url");
+            $vi['src']   = $v->attr("src");
+            $vi['title'] = $v->attr("title");
+            $vi['alt']   = $v->attr("alt");
+            array_push($videosData, $vi);
+        }
+    }
+    \phpQuery::$documents = null;
+    return $videosData;
 }
 
 /**

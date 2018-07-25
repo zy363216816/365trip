@@ -7,14 +7,16 @@
     <include file="public@head"/>
     <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
     <style>
-        body{
+        body {
             overflow-x: hidden;
         }
+
         .caption-wraper {
             position: absolute;
             left: 50%;
             bottom: 2em;
         }
+
         .caption-wraper .caption {
             position: relative;
             left: -50%;
@@ -131,48 +133,37 @@
             </div>
             <div class="slide-box">
                 <div class="box-container bd">
+                    <php>
+                        $last_news_limit=4;
+                    </php>
                     <ul class="slide-list video-list">
-                        <li>
-                            <img src="__TMPL__/public/assets/images/demo/video1.jpg" alt="">
-                            <div class="video-play">
-                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
-                                    <span></span>
-                                    <em></em>
-                                </a>
-                            </div>
-                            <div class="video-intro">
-                                视屏简介
-                            </div>
-                        </li>
-                        <li>
-                            <img src="__TMPL__/public/assets/images/demo/video2.jpg" alt="">
-                            <div class="video-play">
-                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
-                                    <span></span>
-                                    <em></em>
-                                </a>
-                            </div>
-                            <div class="video-intro">
-                                视屏简介
-                            </div>
-                        </li>
-                        <li>
-                            <img src="__TMPL__/public/assets/images/demo/video3.jpg" alt="">
-                            <div class="video-play">
-                                <a class="play-btn" data-source="__TMPL__/public/assets/video/festival.mp4">
-                                    <span></span>
-                                    <em></em>
-                                </a>
-                            </div>
-                            <div class="video-intro">
-                                视屏简介
-                            </div>
-                        </li>
+                        <portal:articles limit="5" order="post.published_time DESC" categoryIds="$widget.vars.video">
+                            <li>
+                                <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.post_title}">
+                                <div class="video-play">
+                                    <php>
+                                        $content=$vo['post_content'];
+                                        $video=cmf_get_content_videos($content);
+                                        if(count($video)!=0){
+                                            $url=$video[0]['src'];
+                                        }else{
+                                            $url='';
+                                        }
+                                    </php>
+                                    <a class="play-btn" data-source="{$url}">
+                                        <span></span>
+                                        <em></em>
+                                    </a>
+                                </div>
+                                <div class="video-intro">
+                                    {$vo.post_excerpt}
+                                </div>
+                            </li>
+                        </portal:articles>
                     </ul>
                 </div>
                 <div class="box-pager hd">
                     <ul>
-                        <li><span class="dot"></span></li>
                         <li><span class="dot"></span></li>
                         <li><span class="dot"></span></li>
                     </ul>
@@ -284,7 +275,8 @@
                         <li>
                             <div class="row">
                                 <div class="guide-photo col-xs-4 col-xs-offset-1">
-                                    <img src="__TMPL__/public/assets/images/photo2.jpg" alt="" class="animated bounceInDown">
+                                    <img src="__TMPL__/public/assets/images/photo2.jpg" alt=""
+                                         class="animated bounceInDown">
                                     <div class="p-sign animated bounceInUp">
                                         <p>个性签名</p>
                                         <p>当你的才华撑不起你的野心时，那你就应该静下心来学习</p>
@@ -302,7 +294,8 @@
                         <li>
                             <div class="row">
                                 <div class="guide-photo col-xs-4 col-xs-offset-1">
-                                    <img src="__TMPL__/public/assets/images/photo1.jpg" alt="" class="animated bounceInDown">
+                                    <img src="__TMPL__/public/assets/images/photo1.jpg" alt=""
+                                         class="animated bounceInDown">
                                     <div class="p-sign animated bounceInUp">
                                         <p>个性签名</p>
                                         <p>春风十里不如你</p>
@@ -477,23 +470,23 @@
         });
         $("#home-slider").show();
         $(".slide-box").slide({
-                mainCell: ".bd ul",
-                effect: "leftLoop",
-                autoPlay: true,
-                trigger: "click",
-                delayTime: 1000,
-                mouseOverStop: true,
-                startFun: function (i, c) {
-                },
-                endFun: function (i, c) {
+            mainCell: ".bd ul",
+            effect: "leftLoop",
+            autoPlay: true,
+            trigger: "click",
+            delayTime: 1000,
+            mouseOverStop: true,
+            startFun: function (i, c) {
+            },
+            endFun: function (i, c) {
 
-                }
+            }
 
-            });
+        });
 
-        $(".roll-news").slide({mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:5});
-        $(".news-box").slide({effect:"fold"});
-        $(".guide").slide({effect:"fold"});
+        $(".roll-news").slide({mainCell: ".bd ul", autoPage: true, effect: "topLoop", autoPlay: true, vis: 5});
+        $(".news-box").slide({effect: "fold"});
+        $(".guide").slide({effect: "fold"});
         $(".play-btn").click(function () {
             var $this = $(this),
                 videoSrc = $this.attr("data-source");
@@ -503,7 +496,7 @@
             setTimeout(function () {
                 $(".close-pv").click(function () {
                     $('.video-bg').remove();
-                    $('.video').remove();
+                    $('.pop-video').remove();
                 });
             }, 500)
         });

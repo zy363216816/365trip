@@ -955,16 +955,18 @@ ul.tc-photos {
 }
 
 .video-intro {
+    max-height: 70px;
+    overflow: hidden;
     position: absolute;
     bottom: 0;
     padding: 10px;
     background: rgba(3, 3, 3, .5);
     color: #fff;
     width: 100%;
-    transition: all 2s;
-    -moz-transition: all 2s;
-    -webkit-transition: all 2s;
-    -o-transition: all 2s;
+    transition: top 2s;
+    -moz-transition:top 2s;
+    -webkit-transition:top 2s;
+    -o-transition:top 2s;
 }
 
 .video-play {
@@ -987,6 +989,8 @@ ul.tc-photos {
 }
 
 .video-play:hover + .video-intro {
+    max-height: 100%;
+    height: 100%;
     top: 0;
 }
 
@@ -1889,7 +1893,9 @@ hr.line-break {
 .ticket .side {
     margin-top: 20px;
 }
-
+.ticket .side .hd li{
+    display: inline-block;
+}
 .ticket .tabs-title span {
     font-size: 20px;
     font-weight: bold;
@@ -1904,7 +1910,7 @@ hr.line-break {
 }
 
 .ticket .tabs-title ul li:hover,
-.ticket .tabs-title ul li.active {
+.ticket .tabs-title ul li.on {
     background: #1E9FFF;
     color: #fff;
 }
@@ -1926,12 +1932,15 @@ hr.line-break {
 
 .ticket .tabs-content li {
     display: inline-block;
-    width: 229px;
+    width: 219px;
     height: 200px;
     border: 1px solid #ddd;
     -webkit-box-shadow: 0 1px 1px #ddd;
     box-shadow: 0 1px 1px #ddd;
-    margin: 0 5px 10px 0;
+    margin: 0 0 10px 7px;
+}
+.ticket .tabs-content li:first-child{
+    margin-left: 0;
 }
 
 .ticket .tabs-content li:hover {
@@ -1965,15 +1974,14 @@ hr.line-break {
 .ticket .other-hot .hot-recommend {
     border-top: 2px solid #ff5a2f;
     padding-top: 10px;
+    margin-bottom: 20px;
 }
 
 .ticket .other-hot ul li {
-    width: 390px;
     height: 160px;
     display: inline-block;
-    margin-right: 2px;
-    margin-bottom: 15px;
     position: relative;
+    overflow: hidden;
 }
 
 .ticket .other-hot ul li img {
@@ -1982,8 +1990,6 @@ hr.line-break {
 }
 
 .ticket .other-hot ul li p {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     height: 35px;
     line-height: 35px;
@@ -1991,6 +1997,8 @@ hr.line-break {
     font-size: 16px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
+    position: relative;
+    bottom: 35px;
 }
 
 .ticket .ticket-detail {
