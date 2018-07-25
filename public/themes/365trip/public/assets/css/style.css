@@ -866,7 +866,9 @@ ul.tc-photos {
 .section {
     margin-bottom: 60px;
 }
-
+.video-content{
+    display: none;
+}
 .pop-video {
     position: fixed;
     left: 50%;

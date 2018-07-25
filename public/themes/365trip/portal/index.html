@@ -137,7 +137,7 @@
                         $last_news_limit=4;
                     </php>
                     <ul class="slide-list video-list">
-                        <portal:articles limit="5" order="post.published_time DESC" categoryIds="$widget.vars.video">
+                        <portal:articles limit="7" order="post.published_time DESC" categoryIds="$widget.vars.video">
                             <li>
                                 <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.post_title}">
                                 <div class="video-play">
@@ -145,12 +145,17 @@
                                         $content=$vo['post_content'];
                                         $video=cmf_get_content_videos($content);
                                         if(count($video)!=0){
-                                            $url=$video[0]['src'];
+                                        $url=$video[0]['src'];
                                         }else{
-                                            $url='';
+                                        $url='';
                                         }
                                     </php>
                                     <a class="play-btn" data-source="{$url}">
+                                        <if condition="$url==''">
+                                            <div class="video-content">
+                                                {$vo.post_content}
+                                            </div>
+                                        </if>
                                         <span></span>
                                         <em></em>
                                     </a>
@@ -164,8 +169,9 @@
                 </div>
                 <div class="box-pager hd">
                     <ul>
-                        <li><span class="dot"></span></li>
-                        <li><span class="dot"></span></li>
+                        <portal:articles limit="7" order="post.published_time DESC" categoryIds="$widget.vars.video">
+                            <li><span class="dot"></span></li>
+                        </portal:articles>
                     </ul>
                 </div>
             </div>
@@ -491,8 +497,17 @@
             var $this = $(this),
                 videoSrc = $this.attr("data-source");
             var html = '<div class="video-bg"></div>';
-            html += '<div class="pop-video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            if (videoSrc === '' || typeof videoSrc === "undefined") {
+                var videoContent = $('.video-content').eq(0).find('embed').clone();
+                html += '<div class="pop-video container"><div id="pop-video"><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            } else {
+                html += '<div class="pop-video container"><div id="pop-video"><video src="' + videoSrc + '" controls autoplay></video></div><a class="close-pv" href="javascript:void(0)">X</a></div></div>';
+            }
             $('body').append(html);
+            if (videoContent) {
+                $("#pop-video").append(videoContent);
+                $("#pop-video").find('embed').css({'min-height': '600px', 'width': '100%'})
+            }
             setTimeout(function () {
                 $(".close-pv").click(function () {
                     $('.video-bg').remove();
